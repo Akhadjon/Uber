@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>169797600264-fafs5t51ueq8mdes0n1b56ups3i2ne41.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.169797600264-fafs5t51ueq8mdes0n1b56ups3i2ne41</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCNh-6NtH-CHQY1eKzDno0qDyr7T4_6jZU</string>
+	<key>GCM_SENDER_ID</key>
+	<string>169797600264</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>Akhadjon.Uber</string>
+	<key>PROJECT_ID</key>
+	<string>uber-ad28a</string>
+	<key>STORAGE_BUCKET</key>
+	<string>uber-ad28a.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:169797600264:ios:15d9e38120e28a3a7c3dbd</string>
+	<key>DATABASE_URL</key>
+	<string>https://uber-ad28a.firebaseio.com</string>
+</dict>
+</plist>
