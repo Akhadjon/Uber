@@ -7,10 +7,14 @@
 
 import UIKit
 import Firebase
+import GeoFire
 
 class SignUpController: UIViewController {
 
     //MARK:-Properties
+    
+    private var location = LocationHandler.shared.locationManager.location
+    
     private let titleLabel :UILabel = {
         let label = UILabel()
         label.text = "UBER"
@@ -47,7 +51,7 @@ class SignUpController: UIViewController {
         return UITextField().textField(withPlaceholder: "fullname", isSecureTextEntry: false)
     }()
     private let passwordTextField:UITextField = {
-        return UITextField().textField(withPlaceholder: "Password", isSecureTextEntry: true)
+        return UITextField().textField(withPlaceholder: "Password", isSecureTextEntry: false)
     }()
     
     private let accountTypeSegmentedControl:UISegmentedControl = {
@@ -81,12 +85,16 @@ class SignUpController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+       
+        print("##############################################################")
+        print("DEBUG: location:  \(location)")
         configureUI()
     }
 
     //MARK:-Actions
     
     @objc private func handleSignUp(){
+        
         
         guard let email = emailTextField.text else { return }
         guard let password = passwordTextField.text else{ return }
@@ -98,17 +106,18 @@ class SignUpController: UIViewController {
                 print("Failed to register to user with error \(error.localizedDescription)")
                 return
             }
-            
             guard let uid = result?.user.uid else {return}
             let values = ["email":email,"fullname":fullname,"accountType":accountTypeIndex] as [String : Any]
             
-            Database.database().reference().child("users").child(uid).updateChildValues(values, withCompletionBlock: { (error, ref) in
-                
-                guard let controller = UIApplication.shared.keyWindow?.rootViewController as? HomeController else{ return }
-                controller.configureUI()
-                self.dismiss(animated: true, completion: nil)
-                
-            })
+            if accountTypeIndex == 1{
+                let geoFire = GeoFire(firebaseRef: REF_DRIVER_LOCATIONS)
+                guard let location = self.location else{return}
+                geoFire.setLocation(location, forKey: uid,withCompletionBlock: { (error) in
+                    self.uploadUserDataAndShowHomeController(uid: uid, values: values)
+                    
+                })
+            }
+            self.uploadUserDataAndShowHomeController(uid: uid, values: values)
         }
     }
     
@@ -117,6 +126,15 @@ class SignUpController: UIViewController {
     }
     
     //MARK:-Helper Functions
+    
+    func uploadUserDataAndShowHomeController(uid:String,values:[String:Any]){
+        REF_USERS.child("users").child(uid).updateChildValues(values, withCompletionBlock: { (error, ref) in
+            guard let controller = UIApplication.shared.keyWindow?.rootViewController as? HomeController else{ return }
+            controller.configureUI()
+            self.dismiss(animated: true, completion: nil)
+            
+        })
+    }
     
     private func configureUI(){
         
@@ -128,13 +146,19 @@ class SignUpController: UIViewController {
             make.centerX.equalToSuperview()
         }
         
-        let stack = UIStackView(arrangedSubviews: [emailContainerView,fullnameContainerView,passwordContainerView,accountTypeContainerView,signUpButton])
+        let stack = UIStackView(arrangedSubviews: [emailContainerView,
+                                                   fullnameContainerView,
+                                                   passwordContainerView,
+                                                   accountTypeContainerView,
+                                                   signUpButton])
         stack.axis = .vertical
         stack.distribution = .fillProportionally
         stack.spacing = 24
         
         view.addSubview(stack)
-        stack.anchor(top: titleLabel.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 40, paddingLeft: 16, paddingRight: 16)
+        stack.anchor(top: titleLabel.bottomAnchor, left: view.leftAnchor,
+                     right: view.rightAnchor, paddingTop: 40, paddingLeft: 16,
+                     paddingRight: 16)
         
         view.addSubview(alreadyHaveAccountButton)
         alreadyHaveAccountButton.centerX(inView: view)

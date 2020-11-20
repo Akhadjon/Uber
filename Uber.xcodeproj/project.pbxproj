@@ -23,6 +23,8 @@
 		9FFFDDD625651E820023EB9A /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFFDDD525651E820023EB9A /* LocationCell.swift */; };
 		9FFFDDDA25652CBB0023EB9A /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFFDDD925652CBB0023EB9A /* Service.swift */; };
 		9FFFDDE3256551210023EB9A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFFDDE2256551210023EB9A /* User.swift */; };
+		9FFFDDE6256580D50023EB9A /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFFDDE5256580D50023EB9A /* LocationHandler.swift */; };
+		9FFFDDEC25659BE40023EB9A /* DriverAnnonation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFFDDEB25659BE40023EB9A /* DriverAnnonation.swift */; };
 		AD84E0F4C27C4AD1749B81AA /* Pods_Uber.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0A6AB495F8546287E56DEB7 /* Pods_Uber.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +49,8 @@
 		9FFFDDD525651E820023EB9A /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		9FFFDDD925652CBB0023EB9A /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		9FFFDDE2256551210023EB9A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		9FFFDDE5256580D50023EB9A /* LocationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHandler.swift; sourceTree = "<group>"; };
+		9FFFDDEB25659BE40023EB9A /* DriverAnnonation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverAnnonation.swift; sourceTree = "<group>"; };
 		B0A6AB495F8546287E56DEB7 /* Pods_Uber.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Uber.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -112,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				9F13BAC4255E999D00B75F33 /* Exrensions.swift */,
+				9FFFDDE5256580D50023EB9A /* LocationHandler.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -149,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				9FFFDDE2256551210023EB9A /* User.swift */,
+				9FFFDDEB25659BE40023EB9A /* DriverAnnonation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -282,7 +288,9 @@
 				9FFFDDD625651E820023EB9A /* LocationCell.swift in Sources */,
 				9FFFDDD3256291FD0023EB9A /* LocationInputView.swift in Sources */,
 				9F13BA91255E93DF00B75F33 /* AppDelegate.swift in Sources */,
+				9FFFDDEC25659BE40023EB9A /* DriverAnnonation.swift in Sources */,
 				9F13BAC5255E999D00B75F33 /* Exrensions.swift in Sources */,
+				9FFFDDE6256580D50023EB9A /* LocationHandler.swift in Sources */,
 				9F13BAAC255E94E000B75F33 /* LoginController.swift in Sources */,
 				9FFFDDE3256551210023EB9A /* User.swift in Sources */,
 				9FFFDDDA25652CBB0023EB9A /* Service.swift in Sources */,
